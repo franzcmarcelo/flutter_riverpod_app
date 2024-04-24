@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:google_fonts/google_fonts.dart';
 import '../../providers/providers.dart';
 
 class StateProviderScreen extends ConsumerWidget {
@@ -18,7 +19,13 @@ class StateProviderScreen extends ConsumerWidget {
         title: const Text('State Provider'),
       ),
       body: Center(
-        child: Text(name),
+        child: Text(
+          name,
+          style: TextStyle(
+            fontFamily: GoogleFonts.russoOne().fontFamily,
+            fontSize: 20,
+          ),
+        ),
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {

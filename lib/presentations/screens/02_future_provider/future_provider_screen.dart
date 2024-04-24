@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:google_fonts/google_fonts.dart';
 import '../../providers/providers.dart';
 
 class FutureProviderScreen extends ConsumerWidget {
@@ -23,15 +24,20 @@ class FutureProviderScreen extends ConsumerWidget {
         children: [
           Text(
             'Pokemon ID: $pokemonId',
-            style: const TextStyle(
+            style: TextStyle(
+              fontFamily: GoogleFonts.russoOne().fontFamily,
               fontSize: 20,
-              fontWeight: FontWeight.bold,
             ),
           ),
           const SizedBox(height: 16),
           Center(
             child: pokemonNameAsync.when(
-              data: (pokemonName) => Text('Pokemon name: $pokemonName'),
+              data: (pokemonName) => Text(
+                pokemonName,
+                style: const TextStyle(
+                  fontSize: 18,
+                ),
+              ),
               loading: () => const CircularProgressIndicator(),
               error: (error, stackTrace) => Text('Error: $error'),
             ),
@@ -54,8 +60,9 @@ class FutureProviderScreen extends ConsumerWidget {
             heroTag: '2',
             child: const Icon(Icons.exposure_minus_1_outlined),
             onPressed: () => {
-              ref.read(pokemonIdProvider.notifier)
-                .update((state) => state - 1),
+              if (pokemonId > 1) {
+               ref.read(pokemonIdProvider.notifier).update((state) => state - 1)
+              }
             },
           ),
         ],

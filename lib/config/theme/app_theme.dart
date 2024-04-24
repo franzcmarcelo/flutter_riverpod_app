@@ -12,6 +12,19 @@ class AppTheme {
       iconColor: seedColor,
     ),
     fontFamily: GoogleFonts.montserratAlternates().fontFamily,
+    appBarTheme: AppBarTheme(
+      centerTitle: true,
+      backgroundColor: seedColor,
+      iconTheme: const IconThemeData(
+        color: Colors.white,
+      ),
+      titleTextStyle: TextStyle(
+        fontFamily: GoogleFonts.montserratAlternates().fontFamily,
+        color: Colors.white,
+        fontSize: 24,
+        fontWeight: FontWeight.bold,
+      ),
+    ),
   );
 
 }

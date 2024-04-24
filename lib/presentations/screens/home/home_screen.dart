@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_riverpod_app/presentations/screens/screens.dart';
 import 'package:go_router/go_router.dart';
+import 'package:google_fonts/google_fonts.dart';
+import '../screens.dart';
 
 class HomeScreen extends StatelessWidget {
 
@@ -12,7 +13,7 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Center(child: Text('RiverApp')),
+        title: const Text('RiverApp'),
       ),
       body: const Center(
         child: _HomeScreenView(),
@@ -60,7 +61,13 @@ class _CustomListTile extends StatelessWidget {
   Widget build(BuildContext context) {
 
     return ListTile(
-      title: Text(title),
+      title: Text(
+        title,
+        style: TextStyle(
+          fontFamily: GoogleFonts.russoOne().fontFamily,
+          fontSize: 18,
+        ),
+      ),
       subtitle: Text(subtitle),
       trailing: const Icon(Icons.arrow_forward_ios_rounded),
       onTap: () {
