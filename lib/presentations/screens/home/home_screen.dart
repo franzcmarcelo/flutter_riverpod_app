@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod_app/presentations/screens/screens.dart';
 import 'package:go_router/go_router.dart';
 
 class HomeScreen extends StatelessWidget {
+
+  static const String routeName = 'home_screen';
 
   const HomeScreen({super.key});
 
@@ -26,7 +29,7 @@ class _HomeScreenView extends StatelessWidget {
         _CustomListTile(
           title: 'State Provider',
           subtitle: 'A simple state',
-          location: '/',
+          routeName: StateProviderScreen.routeName,
         ),
       ],
     );
@@ -37,12 +40,12 @@ class _CustomListTile extends StatelessWidget {
 
   final String title;
   final String subtitle;
-  final String location;
+  final String routeName;
 
   const _CustomListTile({
     required this.title,
     required this.subtitle,
-    required this.location,
+    required this.routeName,
   });
 
   @override
@@ -52,7 +55,7 @@ class _CustomListTile extends StatelessWidget {
       subtitle: Text(subtitle),
       trailing: const Icon(Icons.arrow_forward_ios_rounded),
       onTap: () {
-        context.push(location);
+        context.pushNamed(routeName);
       },
     );
   }
