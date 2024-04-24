@@ -14,7 +14,7 @@ class AppTheme {
     textTheme: TextTheme(
       titleLarge: GoogleFonts.montserratAlternates(),
       titleMedium: GoogleFonts.russoOne(
-        fontSize: 25,
+        fontSize: 20,
       ),
     )
   );

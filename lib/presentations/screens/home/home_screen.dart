@@ -10,8 +10,11 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-      body: Center(
+    return Scaffold(
+      appBar: AppBar(
+        title: const Center(child: Text('RiverApp')),
+      ),
+      body: const Center(
         child: _HomeScreenView(),
       ),
     );
@@ -50,8 +53,11 @@ class _CustomListTile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
+    final titleMediumStyle = Theme.of(context).textTheme.titleMedium;
+
     return ListTile(
-      title: Text(title),
+      title: Text(title, style: titleMediumStyle),
       subtitle: Text(subtitle),
       trailing: const Icon(Icons.arrow_forward_ios_rounded),
       onTap: () {
