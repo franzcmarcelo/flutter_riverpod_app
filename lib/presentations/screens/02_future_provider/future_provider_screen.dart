@@ -12,7 +12,7 @@ class FutureProviderScreen extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
 
     final pokemonId = ref.watch(pokemonIdProvider);
-    final pokemonNameAsync = ref.watch(pokemonNameProvider);
+    final pokemonNameAsync = ref.watch(pokemonNameProvider(pokemonId));
 
     return Scaffold(
       appBar: AppBar(
