@@ -31,8 +31,13 @@ class _HomeScreenView extends StatelessWidget {
       children: const [
         _CustomListTile(
           title: 'State Provider',
-          subtitle: 'A simple state',
+          subtitle: 'Random name generator',
           routeName: StateProviderScreen.routeName,
+        ),
+        _CustomListTile(
+          title: 'Future Provider',
+          subtitle: 'Pokemon api',
+          routeName: FutureProviderScreen.routeName,
         ),
       ],
     );
@@ -54,10 +59,8 @@ class _CustomListTile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
 
-    final titleMediumStyle = Theme.of(context).textTheme.titleMedium;
-
     return ListTile(
-      title: Text(title, style: titleMediumStyle),
+      title: Text(title),
       subtitle: Text(subtitle),
       trailing: const Icon(Icons.arrow_forward_ios_rounded),
       onTap: () {

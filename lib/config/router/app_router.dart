@@ -14,5 +14,10 @@ final appRouter = GoRouter(
       name: StateProviderScreen.routeName,
       builder: (context, state) => const StateProviderScreen(),
     ),
+    GoRoute(
+      path: '/future-provider',
+      name: FutureProviderScreen.routeName,
+      builder: (context, state) => const FutureProviderScreen(),
+    ),
   ],
 );

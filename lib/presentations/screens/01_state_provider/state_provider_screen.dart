@@ -11,7 +11,6 @@ class StateProviderScreen extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
 
-    final titleMediumStyle = Theme.of(context).textTheme.titleMedium;
     final name = ref.watch(randomNameProvider);
 
     return Scaffold(
@@ -19,7 +18,7 @@ class StateProviderScreen extends ConsumerWidget {
         title: const Text('State Provider'),
       ),
       body: Center(
-        child: Text(name, style: titleMediumStyle),
+        child: Text(name),
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
