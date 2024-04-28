@@ -19,5 +19,10 @@ final appRouter = GoRouter(
       name: FutureProviderScreen.routeName,
       builder: (context, state) => const FutureProviderScreen(),
     ),
+    GoRoute(
+      path: '/stream-provider',
+      name: StreamProviderScreen.routeName,
+      builder: (context, state) => const StreamProviderScreen(),
+    ),
   ],
 );

@@ -40,6 +40,11 @@ class _HomeScreenView extends StatelessWidget {
           subtitle: 'Pokemon api',
           routeName: FutureProviderScreen.routeName,
         ),
+        _CustomListTile(
+          title: 'Stream Provider',
+          subtitle: 'Stream of random names',
+          routeName: StreamProviderScreen.routeName,
+        ),
       ],
     );
   }
