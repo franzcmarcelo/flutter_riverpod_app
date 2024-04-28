@@ -51,7 +51,7 @@ class _HomeScreenView extends StatelessWidget {
         ),
         _CustomListTile(
           title: 'State Notifier Provider',
-          subtitle: 'To-do list',
+          subtitle: 'To-do list for Guest List',
           routeName: StateNotifierProviderScreen.routeName,
         ),
       ],

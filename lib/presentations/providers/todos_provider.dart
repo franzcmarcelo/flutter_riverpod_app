@@ -5,8 +5,29 @@ import '../../domain/domains.dart';
 
 const _uuid = Uuid();
 
+enum TodoFilter {
+  all,
+  completed,
+  pending,
+}
+
+final todoFilterProvider = StateProvider<TodoFilter>((ref) {
+  return TodoFilter.all;
+});
+
 final todosProvider = StateNotifierProvider<TodosNotifier, List<Todo>>((ref) {
   return TodosNotifier();
+});
+
+final filteredTodosProvider = Provider<List<Todo>>((ref) {
+  final selectedFilter = ref.watch(todoFilterProvider);
+  final todos = ref.watch(todosProvider);
+  return todos.where((todo) {
+    if(selectedFilter == TodoFilter.all) return true;
+    if(selectedFilter == TodoFilter.completed) return todo.done;
+    if(selectedFilter == TodoFilter.pending) return !todo.done;
+    return false;
+  }).toList();
 });
 
 class TodosNotifier extends StateNotifier<List<Todo>> {
