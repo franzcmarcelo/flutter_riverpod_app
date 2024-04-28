@@ -24,5 +24,10 @@ final appRouter = GoRouter(
       name: StreamProviderScreen.routeName,
       builder: (context, state) => const StreamProviderScreen(),
     ),
+    GoRoute(
+      path: '/state-notifier-provider',
+      name: StateNotifierProviderScreen.routeName,
+      builder: (context, state) => const StateNotifierProviderScreen(),
+    ),
   ],
 );

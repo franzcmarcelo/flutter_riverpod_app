@@ -45,6 +45,11 @@ class _HomeScreenView extends StatelessWidget {
           subtitle: 'Stream of random names',
           routeName: StreamProviderScreen.routeName,
         ),
+        _CustomListTile(
+          title: 'State Notifier Provider',
+          subtitle: 'To-do list',
+          routeName: StateNotifierProviderScreen.routeName,
+        ),
       ],
     );
   }
