@@ -73,8 +73,8 @@ class _CustomListTile extends StatelessWidget {
     return ListTile(
       title: Text(
         title,
-        style: TextStyle(
-          fontFamily: GoogleFonts.russoOne().fontFamily,
+        style: const TextStyle(
+          fontWeight: FontWeight.bold,
           fontSize: 18,
         ),
       ),
