@@ -10,8 +10,6 @@ class PokemonService {
       )
     );
 
-    await Future.delayed(const Duration(seconds: 2));
-
     try {
       final response = await dio.get('/pokemon/$pokemonId');
       return response.data['name'] ?? 'Pokemon name not found';

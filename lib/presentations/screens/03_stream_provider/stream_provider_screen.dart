@@ -16,22 +16,57 @@ class StreamProviderScreen extends ConsumerWidget {
       appBar: AppBar(
         title: const Text('Stream Provider'),
       ),
-      body: randomNames$.when(
-        data: (name) => Center(
-          child: Text(
-            name,
+      body: Column(
+        children: [
+          const SizedBox(height: 20),
+          const Text(
+            'List of Contacts',
             style: TextStyle(
-              fontFamily: GoogleFonts.russoOne().fontFamily,
-              fontSize: 24,
+              fontSize: 20,
+              fontWeight: FontWeight.bold,
+              decoration: TextDecoration.underline,
             ),
           ),
-        ),
-        error: (error, stackTrace) => Center(
-          child: Text('Error: $error'),
-        ),
-        loading: () => const Center(
-          child: CircularProgressIndicator(),
-        ),
+          const SizedBox(height: 30),
+          randomNames$.when(
+            data: (names) => Expanded(
+              child: Center(
+                child: ListView.builder(
+                  itemCount: names.length,
+                  itemBuilder: (context, index) {
+                    return ListTile(
+                      title: Text(
+                        names[index],
+                        style: GoogleFonts.russoOne(),
+                      ),
+                      dense: true,
+                      leading: CircleAvatar(
+                        child: Text(
+                          names[index][0],
+                          style: GoogleFonts.russoOne(),
+                        ),
+                      ),
+                      trailing: const Row(
+                        mainAxisSize: MainAxisSize.min,
+                        children: [
+                          Icon(Icons.chat_bubble_outline_rounded),
+                          SizedBox(width: 10),
+                          Icon(Icons.call_rounded),
+                        ],
+                      ),
+                    );
+                  },
+                ),
+              ),
+            ),
+            error: (error, stackTrace) => Center(
+              child: Text('Error: $error'),
+            ),
+            loading: () => const Center(
+              child: CircularProgressIndicator(),
+            ),
+          ),
+        ],
       ),
     );
   }

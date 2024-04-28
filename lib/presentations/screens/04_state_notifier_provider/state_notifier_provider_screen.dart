@@ -14,7 +14,7 @@ class StateNotifierProviderScreen extends ConsumerWidget {
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Guest List'),
+        title: const Text('State Notifier Provider'),
       ),
       body: const _TodosView(),
       floatingActionButton: FloatingActionButton(
@@ -38,7 +38,16 @@ class _TodosView extends ConsumerWidget {
 
     return Column(
       children: [
-        const SizedBox(height: 10),
+        const SizedBox(height: 20),
+        const Text(
+          'Guest List',
+          style: TextStyle(
+            fontSize: 20,
+            fontWeight: FontWeight.bold,
+            decoration: TextDecoration.underline,
+          ),
+        ),
+        const SizedBox(height: 30),
         SegmentedButton(
           segments: const [
             ButtonSegment(value: TodoFilter.all, icon: Text('All')),
@@ -52,29 +61,39 @@ class _TodosView extends ConsumerWidget {
         ),
         const SizedBox(height: 10),
         Expanded(
-          child: ListView.builder(
-            itemCount: filteredTodos.length,
-            itemBuilder: (context, index) {
-              final todo = filteredTodos[index];
-              return SwitchListTile(
-                title: Text(
-                  todo.description,
+          child: filteredTodos.isEmpty
+            ? const Center(
+                child: Text(
+                  'No Guest Found',
                   style: TextStyle(
-                    fontFamily: GoogleFonts.russoOne().fontFamily,
-                  )
+                    fontSize: 20,
+                    fontWeight: FontWeight.bold,
+                  ),
                 ),
-                subtitle: Text(
-                  todo.done
-                    ? 'Completed at ${todo.completedAt.toString()}'
-                    : 'Pending',
-                ),
-                value: todo.done,
-                onChanged: (_) {
-                  ref.read( todosProvider.notifier ).toggle( todo.id );
-                }
-              );
-            },
-          ),
+              )
+            : ListView.builder(
+              itemCount: filteredTodos.length,
+              itemBuilder: (context, index) {
+                final todo = filteredTodos[index];
+                return SwitchListTile(
+                  title: Text(
+                    todo.description,
+                    style: TextStyle(
+                      fontFamily: GoogleFonts.russoOne().fontFamily,
+                    )
+                  ),
+                  subtitle: Text(
+                    todo.done
+                      ? 'Completed at ${todo.completedAt.toString()}'
+                      : 'Pending',
+                  ),
+                  value: todo.done,
+                  onChanged: (_) {
+                    ref.read( todosProvider.notifier ).toggle( todo.id );
+                  }
+                );
+              },
+            ),
         ),
       ],
     );

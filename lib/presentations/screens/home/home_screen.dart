@@ -46,7 +46,7 @@ class _HomeScreenView extends StatelessWidget {
         ),
         _CustomListTile(
           title: 'Stream Provider',
-          subtitle: 'Stream of random names',
+          subtitle: 'Stream for list of contacts',
           routeName: StreamProviderScreen.routeName,
         ),
         _CustomListTile(

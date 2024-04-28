@@ -1,10 +1,13 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_riverpod_app/config/config.dart';
 
-final namesStreamProvider = StreamProvider.autoDispose<String>((ref) async* {
+final namesStreamProvider = StreamProvider.autoDispose<List<String>>((ref) async* {
+  final List<String> names = [];
   await for (final name in RandomGenerator.randomNamesStream() ) {
-    yield name;
+    names.add(name);
+    yield names;
   }
+
 });
 
 // final namesStreamProvider = StreamProvider<List<String>>((ref) async* {
