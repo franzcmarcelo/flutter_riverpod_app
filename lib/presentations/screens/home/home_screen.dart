@@ -36,7 +36,7 @@ class _HomeScreenView extends StatelessWidget {
         ),
         _CustomListTile(
           title: 'State Provider',
-          subtitle: 'Random name generator',
+          subtitle: 'Random name generator & Dark mode toggle',
           routeName: StateProviderScreen.routeName,
         ),
         _CustomListTile(

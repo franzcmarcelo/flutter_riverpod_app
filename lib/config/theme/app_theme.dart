@@ -5,9 +5,16 @@ const seedColor = Colors.indigoAccent;
 
 class AppTheme {
 
+  final bool isDarkMode;
+
+  AppTheme({
+    this.isDarkMode = false,
+  });
+
   ThemeData getTheme() => ThemeData(
     useMaterial3: true,
     colorSchemeSeed: seedColor,
+    brightness: isDarkMode ? Brightness.dark : Brightness.light,
     listTileTheme: const ListTileThemeData(
       iconColor: seedColor,
     ),

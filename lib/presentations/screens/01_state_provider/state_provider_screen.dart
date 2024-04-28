@@ -19,18 +19,34 @@ class StateProviderScreenState extends ConsumerState<StateProviderScreen> {
   Widget build(BuildContext context) {
 
     final name = ref.watch(randomNameProvider);
+    final isDarkMode = ref.watch(isDarkModeProvider);
 
     return Scaffold(
       appBar: AppBar(
         title: const Text('State Provider'),
       ),
       body: Center(
-        child: Text(
-          name,
-          style: TextStyle(
-            fontFamily: GoogleFonts.russoOne().fontFamily,
-            fontSize: 20,
-          ),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            IconButton(
+              icon: isDarkMode
+                ? const Icon(Icons.light_mode_rounded)
+                : const Icon(Icons.dark_mode_rounded),
+              iconSize: 50,
+              onPressed: () {
+                ref.read(isDarkModeProvider.notifier).update((state) => !state);
+              },
+            ),
+            const SizedBox(height: 20),
+            Text(
+              name,
+              style: TextStyle(
+                fontFamily: GoogleFonts.russoOne().fontFamily,
+                fontSize: 20,
+              ),
+            ),
+          ],
         ),
       ),
       floatingActionButton: FloatingActionButton(
