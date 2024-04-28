@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:google_fonts/google_fonts.dart';
 import '../screens.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -30,6 +29,11 @@ class _HomeScreenView extends StatelessWidget {
   Widget build(BuildContext context) {
     return ListView(
       children: const [
+        _CustomListTile(
+          title: 'Provider',
+          subtitle: 'A read-only Go-Router Provider',
+          routeName: ProviderScreen.routeName,
+        ),
         _CustomListTile(
           title: 'State Provider',
           subtitle: 'Random name generator',
